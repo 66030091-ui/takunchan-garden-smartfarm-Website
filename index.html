@@ -27,28 +27,38 @@
   </header>
 
   <main class="container">
-    <section class="hero">
-      <div class="card">
-        <span class="badge">สวน + IoT</span>
-        <h1 style="margin:.25rem 0 0 0">ยินดีต้อนรับสู่ <span style="color:var(--accent-2)">สวนทุเรียนอัจฉริยะ</span></h1>
-        <p style="color:var(--muted)">ผสานแนวทางเกษตรธรรมชาติ กับเทคโนโลยีควบคุมอัตโนมัติ ESP32, ระบบวัดความชื้น และแดชบอร์ดแบบเรียลไทม์</p>
-        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.25rem">
-          <a class="btn" href="iot.html">ดูระบบ IoT</a>
-          <a class="btn ghost" href="about.html">เกี่ยวกับสวน</a>
-        </div>
-      </div>
-      <div class="hero-illus">
-        <img src="assets/img/hero.svg" alt="Takunchan Garden Illustration">
-      </div>
-    </section>
+   <section class="hero">
+  <div class="card" style="background:linear-gradient(135deg,#dcfce7,#f0f9ff);padding:2rem">
+    <h1 style="margin-top:0;color:#14532d">
+      🌳 สวนทุเรียนตระกูลจัน
+    </h1>
+    <h2 style="color:#065f46;margin-top:.25rem">
+      ระบบบริหารจัดการน้ำอัจฉริยะด้วยเทคโนโลยี IoT
+    </h2>
+    <p style="color:#334155;line-height:1.6">
+      สวนทุเรียนในอำเภอโพธาราม จังหวัดราชบุรี ที่นำเทคโนโลยี ESP32, เซนเซอร์วัดความชื้น และระบบ Sensor Moisture
+      มาช่วยควบคุมการรดน้ำอย่างแม่นยำ เพื่อเพิ่มคุณภาพผลผลิตและลดการใช้น้ำอย่างยั่งยืนและมีประสิทธิภาพ
+    </p>
+
+    <div style="margin-top:1.2rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="iot.html" class="btn secondary">ดูระบบ IoT</a>
+      <a href="about.html" class="btn ghost">เกี่ยวกับสวน</a>
+    </div>
+  </div>
+
+  <div class="hero-illus">
+    <img src="assets/img/hero.svg" alt="Takunchan Garden IoT System" style="max-width:90%;border-radius:12px">
+  </div>
+</section>
+
 
     <section style="margin-top:1.5rem">
       <h2 class="section-title">จุดเด่นของเรา</h2>
       <div class="grid-3">
         <div class="card">
           <h3>รดน้ำอัตโนมัติ</h3>
-          <p class="kv"><span class="dot"></span> ควบคุมด้วย ESP32 และรีเลย์</p>
-          <p class="kv"><span class="dot"></span> ตั้งโหมด Auto/Manual ได้</p>
+          <p class="kv"><span class="dot"></span> ควบคุมด้วย ESP32 และ Sensor Moisture</p>
+          <p class="kv"><span class="dot"></span> ระบบตั้งโหมด Auto/Manual ได้</p>
         </div>
         <div class="card">
           <h3>ข้อมูลแบบเรียลไทม์</h3>
@@ -58,7 +68,7 @@
         <div class="card">
           <h3>พลังงานยั่งยืน</h3>
           <p class="kv"><span class="dot"></span> รองรับโซลาร์เซลล์/แบตเตอรี่</p>
-          <p class="kv"><span class="dot"></span> บริหารพลังงานอย่างมีประสิทธิภาพ</p>
+          <p class="kv"><span class="dot"></span> ใช้พลังงานสังเคราะห์อย่างมีประสิทธิภาพ</p>
         </div>
       </div>
     </section>
@@ -67,7 +77,7 @@
       <div class="dashboard">
         <div class="tile">
           <div style="display:flex;justify-content:space-between;align-items:center">
-            <h3>สรุปสถานะสวน (จำลอง)</h3>
+            <h3>สรุปสถานะสวน</h3>
             <a class="btn secondary" href="iot.html">รายละเอียดระบบ</a>
           </div>
           <div style="display:grid;gap:1rem;grid-template-columns:1fr 1fr;align-items:center;margin-top:.5rem">
@@ -95,7 +105,7 @@
   <footer class="site">
     <div class="container footer-inner">
       <div>© 2025 Takunchan Garden — อ.โพธาราม จ.ราชบุรี</div>
-      <div>ติดต่อ: takunchan.garden@example.com</div>
+      <div>ติดต่อ: takunchangarden@gmail.com</div>
     </div>
   </footer>
   <script src="assets/js/script.js"></script>
