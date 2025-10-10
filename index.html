@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Takunchan Garden — สวน + IoT</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <div class="brand">
+        <div class="logo">TG</div>
+        <div>
+          <div style="font-weight:800;font-size:1.1rem">Takunchan Garden</div>
+          <div style="font-size:.9rem;color:var(--muted)">Smart Farm • IoT • Durian</div>
+        </div>
+      </div>
+      <nav class="main">
+        <a class="active" href="index.html">หน้าแรก</a>
+        <a href="about.html">เกี่ยวกับสวน</a>
+        <a href="iot.html">ระบบ IoT</a>
+        <a href="gallery.html">ภาพสวน</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <span class="badge">สวน + IoT</span>
+        <h1 style="margin:.25rem 0 0 0">ยินดีต้อนรับสู่ <span style="color:var(--accent-2)">สวนทุเรียนอัจฉริยะ</span></h1>
+        <p style="color:var(--muted)">ผสานแนวทางเกษตรธรรมชาติ กับเทคโนโลยีควบคุมอัตโนมัติ ESP32, ระบบวัดความชื้น และแดชบอร์ดแบบเรียลไทม์</p>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.25rem">
+          <a class="btn" href="iot.html">ดูระบบ IoT</a>
+          <a class="btn ghost" href="about.html">เกี่ยวกับสวน</a>
+        </div>
+      </div>
+      <div class="hero-illus">
+        <img src="assets/img/hero.svg" alt="Takunchan Garden Illustration">
+      </div>
+    </section>
+
+    <section style="margin-top:1.5rem">
+      <h2 class="section-title">จุดเด่นของเรา</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>รดน้ำอัตโนมัติ</h3>
+          <p class="kv"><span class="dot"></span> ควบคุมด้วย ESP32 และรีเลย์</p>
+          <p class="kv"><span class="dot"></span> ตั้งโหมด Auto/Manual ได้</p>
+        </div>
+        <div class="card">
+          <h3>ข้อมูลแบบเรียลไทม์</h3>
+          <p class="kv"><span class="dot"></span> บันทึกและแสดงผลความชื้น</p>
+          <p class="kv"><span class="dot"></span> Mock Dashboard ในหน้านี้</p>
+        </div>
+        <div class="card">
+          <h3>พลังงานยั่งยืน</h3>
+          <p class="kv"><span class="dot"></span> รองรับโซลาร์เซลล์/แบตเตอรี่</p>
+          <p class="kv"><span class="dot"></span> บริหารพลังงานอย่างมีประสิทธิภาพ</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:1.5rem">
+      <div class="dashboard">
+        <div class="tile">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <h3>สรุปสถานะสวน (จำลอง)</h3>
+            <a class="btn secondary" href="iot.html">รายละเอียดระบบ</a>
+          </div>
+          <div style="display:grid;gap:1rem;grid-template-columns:1fr 1fr;align-items:center;margin-top:.5rem">
+            <div>
+              <div style="color:var(--muted);font-weight:600">ความชื้นในดิน</div>
+              <div class="metric" id="metric-moist">-- %</div>
+              <div class="status on" id="pump-status">
+                <span class="dot"></span>
+                <div><strong>ปั๊ม</strong> <span class="label">ON</span></div>
+              </div>
+            </div>
+            <canvas class="spark" id="spark"></canvas>
+          </div>
+        </div>
+        <div class="tile">
+          <h3>ประกาศ</h3>
+          <div class="notice">
+            นี่คือข้อมูลจำลองเพื่อสาธิต UI — เมื่อต้องการเชื่อมต่อข้อมูลจริง สามารถปรับ <code>script.js</code> ให้ fetch จาก ThingSpeak / Firebase / API ของคุณ
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="container footer-inner">
+      <div>© 2025 Takunchan Garden — อ.โพธาราม จ.ราชบุรี</div>
+      <div>ติดต่อ: takunchan.garden@example.com</div>
+    </div>
+  </footer>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

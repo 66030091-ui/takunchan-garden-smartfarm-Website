@@ -1,0 +1,38 @@
+
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="800" height="380" rx="16" fill="#f0f9ff" stroke="#bae6fd"/>
+  <!-- ESP32 -->
+  <rect x="60" y="60" width="150" height="90" rx="12" fill="white" stroke="#94a3b8"/>
+  <text x="135" y="115" text-anchor="middle" font-family="sans-serif" font-size="16">ESP32</text>
+  <!-- Moisture Sensor -->
+  <rect x="300" y="40" width="190" height="70" rx="12" fill="white" stroke="#94a3b8"/>
+  <text x="395" y="83" text-anchor="middle" font-family="sans-serif" font-size="14">Soil Moisture Sensor</text>
+  <!-- Pump/Relay -->
+  <rect x="300" y="160" width="190" height="70" rx="12" fill="white" stroke="#94a3b8"/>
+  <text x="395" y="203" text-anchor="middle" font-family="sans-serif" font-size="14">Relay + Pump</text>
+  <!-- Solar -->
+  <rect x="60" y="190" width="150" height="70" rx="12" fill="white" stroke="#94a3b8"/>
+  <text x="135" y="233" text-anchor="middle" font-family="sans-serif" font-size="14">Solar / Battery</text>
+  <!-- Cloud -->
+  <rect x="560" y="100" width="200" height="120" rx="20" fill="white" stroke="#94a3b8"/>
+  <text x="660" y="160" text-anchor="middle" font-family="sans-serif" font-size="14">Cloud: Node-RED / ThingSpeak / Firebase</text>
+
+  <!-- Arrows -->
+  <path d="M210 100 L300 75" stroke="url(#g1)" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M210 225 L300 195" stroke="url(#g1)" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M490 75 L560 140" stroke="url(#g1)" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M490 195 L560 160" stroke="url(#g1)" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerUnits="strokeWidth" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9" />
+    </marker>
+  </defs>
+</svg>

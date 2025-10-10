@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ระบบ IoT — Takunchan Garden</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <div class="brand">
+        <div class="logo">TG</div>
+        <div>
+          <div style="font-weight:800;font-size:1.1rem">Takunchan Garden</div>
+          <div style="font-size:.9rem;color:var(--muted)">Smart Farm • IoT • Durian</div>
+        </div>
+      </div>
+      <nav class="main">
+        <a href="index.html">หน้าแรก</a>
+        <a href="about.html">เกี่ยวกับสวน</a>
+        <a class="active" href="iot.html">ระบบ IoT</a>
+        <a href="gallery.html">ภาพสวน</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title">แผนผังระบบรดน้ำอัตโนมัติ</h1>
+    <div class="card">
+      <img class="sys-diagram" src="assets/img/system-diagram.svg" alt="System Diagram: ESP32 + Sensors + Pump + Cloud">
+      <p style="color:var(--muted)">ESP32 รับค่าความชื้นจากเซนเซอร์ ควบคุมรีเลย์/ปั๊ม และส่งข้อมูลขึ้น Cloud (Node-RED / ThingSpeak / Firebase) เพื่อดูข้อมูลและสั่งงานระยะไกล</p>
+    </div>
+
+    <h2 class="section-title">แดชบอร์ดสถานะ (ตัวอย่าง)</h2>
+    <div class="dashboard">
+      <div class="tile">
+        <div style="display:flex;gap:1rem;align-items:center">
+          <div style="width:10px;height:10px;border-radius:999px;background:#22c55e"></div>
+          <div><strong>โหมด:</strong> Auto • <strong>ช่วงเป้าหมาย:</strong> ความชื้น 35–45%</div>
+        </div>
+        <table class="table" style="margin-top:.75rem">
+          <thead><tr><th>พารามิเตอร์</th><th>ค่า</th><th>หมายเหตุ</th></tr></thead>
+          <tbody>
+            <tr><td>ความชื้นในดิน</td><td id="metric-moist">-- %</td><td>ปรับปรุงอัตโนมัติทุก 1.5s</td></tr>
+            <tr><td>สถานะปั๊ม</td><td><div class="status on" id="pump-status"><span class="dot"></span> <span class="label">ON</span></div></td><td>เปิดเมื่อความชื้น < 35%</td></tr>
+          </tbody>
+        </table>
+        <canvas class="spark" id="spark" style="margin-top:.5rem"></canvas>
+      </div>
+      <div class="tile">
+        <h3>การเชื่อมต่อข้อมูลจริง</h3>
+        <p class="notice">แก้โค้ดใน <code>assets/js/script.js</code> เพื่อดึงข้อมูลจริงจาก API ของคุณ เช่น <code>fetch('https://api.thingspeak.com/...')</code> หรือ Firebase/Node-RED</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="container footer-inner">
+      <div>© 2025 Takunchan Garden</div>
+      <div>ESP32 • Node-RED • ThingSpeak • Firebase</div>
+    </div>
+  </footer>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
