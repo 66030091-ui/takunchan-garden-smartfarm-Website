@@ -38,13 +38,20 @@
     <h2 class="section-title">แดชบอร์ดสถานะ (ข้อมูลจริงจาก ThingSpeak)</h2>
     <div class="dashboard">
       <div class="tile">
+        <!-- แสดงโหมดปัจจุบัน -->
         <div style="display:flex;gap:1rem;align-items:center">
           <div style="width:10px;height:10px;border-radius:999px;background:#22c55e"></div>
-          <div><strong>โหมด:</strong> <span id="mode-status">AUTO</span> • <strong>ช่วงเป้าหมาย:</strong> ความชื้น 35–45%</div>
+          <div>
+            <strong>โหมด:</strong> <span id="mode-status">AUTO</span> • 
+            <strong>ช่วงเป้าหมาย:</strong> ความชื้น 35–45%
+          </div>
         </div>
 
+        <!-- ตารางแสดงค่าพารามิเตอร์ -->
         <table class="table" style="margin-top:.75rem">
-          <thead><tr><th>พารามิเตอร์</th><th>ค่า</th><th>หมายเหตุ</th></tr></thead>
+          <thead>
+            <tr><th>พารามิเตอร์</th><th>ค่า</th><th>หมายเหตุ</th></tr>
+          </thead>
           <tbody>
             <tr>
               <td>ความชื้นในดิน</td>
@@ -62,13 +69,14 @@
             </tr>
             <tr>
               <td>โหมดควบคุม</td>
-              <td id="mode-status">AUTO</td>
+              <td id="mode-status-table">AUTO</td>
               <td>field3 จาก ThingSpeak</td>
             </tr>
           </tbody>
         </table>
 
-        <canvas class="spark" id="spark" style="margin-top:.5rem"></canvas>
+        <!-- กราฟความชื้นย้อนหลัง -->
+        <canvas id="spark" style="margin-top:1rem;height:220px;"></canvas>
       </div>
 
       <div class="tile">
@@ -88,7 +96,8 @@
     </div>
   </footer>
 
-  <!-- เชื่อมต่อ JavaScript ที่ดึงข้อมูล ThingSpeak -->
+  <!-- โหลด Chart.js และสคริปต์หลัก -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
