@@ -1,51 +1,45 @@
+// ===== Takunchan Garden IoT Dashboard =====
+// ดึงข้อมูลจาก ThingSpeak channel จริง
+const CHANNEL_ID = "3069958";
+const READ_API_KEY = "TX73L46FK87FRFGQ";
+const URL = `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?results=1&api_key=${READ_API_KEY}`;
 
-// Simple interactive demo for the dashboard mock
-(function(){
-  const $ = (q)=>document.querySelector(q);
-  const moistEl = $("#metric-moist");
-  const pumpEl = $("#pump-status");
-  const spark = $("#spark");
+// อ้างอิง element บนหน้าเว็บ
+const moistEl = document.getElementById("metric-moist");
+const pumpEl = document.getElementById("pump-status");
+const modeEl = document.getElementById("mode-status");
 
-  // Fake time-series for sparkline
-  const data = Array.from({length:30}, (_,i)=> 25 + Math.round(8*Math.sin(i/4)) + Math.round(Math.random()*4));
+// ฟังก์ชันดึงข้อมูลจาก ThingSpeak
+async function fetchThingSpeak() {
+  try {
+    const res = await fetch(URL);
+    const data = await res.json();
 
-  function drawSpark(){
-    if(!spark) return;
-    const ctx = spark.getContext("2d");
-    const w = spark.width, h = spark.height;
-    ctx.clearRect(0,0,w,h);
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    data.forEach((v,i)=>{
-      const x = i/(data.length-1)*w;
-      const y = h - (v-20)/20*h;
-      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-    });
-    ctx.strokeStyle = "#0ea5e9";
-    ctx.stroke();
-  }
+    if (data.feeds && data.feeds.length > 0) {
+      const feed = data.feeds[0];
 
-  function updateMetrics(){
-    // Rotate data to simulate live updates
-    data.push(data.shift());
-    drawSpark();
-    const latest = data[data.length-1];
-    if(moistEl) moistEl.textContent = latest + " %";
-    if(pumpEl){
-      const isOn = latest < 35;
-      pumpEl.classList.toggle("on", isOn);
-      pumpEl.classList.toggle("off", !isOn);
-      pumpEl.querySelector(".label").textContent = isOn ? "ON" : "OFF";
+      // ⚙️ ปรับตามฟิลด์จริงใน ThingSpeak ของคุณ
+      const moisture = parseFloat(feed.field1);   // field1 = ความชื้น (%)
+      const pumpState = parseInt(feed.field2);    // field2 = ปั๊ม (0 = OFF, 1 = ON)
+      const mode = feed.field3 || "AUTO";         // field3 = โหมดควบคุม
+
+      // 🧾 แสดงผลบนหน้าเว็บ
+      if (moistEl) moistEl.textContent = `${moisture.toFixed(1)} %`;
+
+      if (pumpEl) {
+        pumpEl.classList.toggle("on", pumpState === 1);
+        pumpEl.classList.toggle("off", pumpState !== 1);
+        const label = pumpEl.querySelector(".label");
+        if (label) label.textContent = pumpState === 1 ? "ON" : "OFF";
+      }
+
+      if (modeEl) modeEl.textContent = mode;
     }
+  } catch (err) {
+    console.error("ThingSpeak fetch error:", err);
   }
+}
 
-  window.addEventListener("load", ()=>{
-    if(spark){
-      spark.width = spark.clientWidth * (window.devicePixelRatio||1);
-      spark.height = spark.clientHeight * (window.devicePixelRatio||1);
-    }
-    drawSpark();
-    updateMetrics();
-    setInterval(updateMetrics, 1500);
-  });
-})();
+// เรียกข้อมูลครั้งแรก และอัปเดตทุก 15 วินาที
+fetchThingSpeak();
+setInterval(fetchThingSpeak, 15000);

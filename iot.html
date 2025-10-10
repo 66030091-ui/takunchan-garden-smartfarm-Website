@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -30,28 +29,54 @@
     <h1 class="section-title">แผนผังระบบรดน้ำอัตโนมัติ</h1>
     <div class="card">
       <img class="sys-diagram" src="assets/img/system-diagram.svg" alt="System Diagram: ESP32 + Sensors + Pump + Cloud">
-      <p style="color:var(--muted)">ESP32 รับค่าความชื้นจากเซนเซอร์ ควบคุมรีเลย์/ปั๊ม และส่งข้อมูลขึ้น Cloud (Node-RED / ThingSpeak / Firebase) เพื่อดูข้อมูลและสั่งงานระยะไกล</p>
+      <p style="color:var(--muted)">
+        ESP32 รับค่าความชื้นจากเซนเซอร์ ควบคุมรีเลย์/ปั๊ม และส่งข้อมูลขึ้น Cloud (Node-RED / ThingSpeak / Firebase)
+        เพื่อดูข้อมูลและสั่งงานระยะไกล
+      </p>
     </div>
 
-    <h2 class="section-title">แดชบอร์ดสถานะ (ตัวอย่าง)</h2>
+    <h2 class="section-title">แดชบอร์ดสถานะ (ข้อมูลจริงจาก ThingSpeak)</h2>
     <div class="dashboard">
       <div class="tile">
         <div style="display:flex;gap:1rem;align-items:center">
           <div style="width:10px;height:10px;border-radius:999px;background:#22c55e"></div>
-          <div><strong>โหมด:</strong> Auto • <strong>ช่วงเป้าหมาย:</strong> ความชื้น 35–45%</div>
+          <div><strong>โหมด:</strong> <span id="mode-status">AUTO</span> • <strong>ช่วงเป้าหมาย:</strong> ความชื้น 35–45%</div>
         </div>
+
         <table class="table" style="margin-top:.75rem">
           <thead><tr><th>พารามิเตอร์</th><th>ค่า</th><th>หมายเหตุ</th></tr></thead>
           <tbody>
-            <tr><td>ความชื้นในดิน</td><td id="metric-moist">-- %</td><td>ปรับปรุงอัตโนมัติทุก 1.5s</td></tr>
-            <tr><td>สถานะปั๊ม</td><td><div class="status on" id="pump-status"><span class="dot"></span> <span class="label">ON</span></div></td><td>เปิดเมื่อความชื้น < 35%</td></tr>
+            <tr>
+              <td>ความชื้นในดิน</td>
+              <td id="metric-moist">-- %</td>
+              <td>field1 จาก ThingSpeak</td>
+            </tr>
+            <tr>
+              <td>สถานะปั๊มน้ำ</td>
+              <td>
+                <div class="status off" id="pump-status">
+                  <span class="dot"></span> <span class="label">OFF</span>
+                </div>
+              </td>
+              <td>field2 (0=OFF, 1=ON)</td>
+            </tr>
+            <tr>
+              <td>โหมดควบคุม</td>
+              <td id="mode-status">AUTO</td>
+              <td>field3 จาก ThingSpeak</td>
+            </tr>
           </tbody>
         </table>
+
         <canvas class="spark" id="spark" style="margin-top:.5rem"></canvas>
       </div>
+
       <div class="tile">
         <h3>การเชื่อมต่อข้อมูลจริง</h3>
-        <p class="notice">แก้โค้ดใน <code>assets/js/script.js</code> เพื่อดึงข้อมูลจริงจาก API ของคุณ เช่น <code>fetch('https://api.thingspeak.com/...')</code> หรือ Firebase/Node-RED</p>
+        <p class="notice">
+          หน้านี้ดึงข้อมูลจริงจาก <strong>ThingSpeak Channel ID 3069958</strong><br>
+          อัปเดตทุก 15 วินาที (Read API Key: TX73L46FK87FRFGQ)
+        </p>
       </div>
     </div>
   </main>
@@ -62,6 +87,8 @@
       <div>ESP32 • Node-RED • ThingSpeak • Firebase</div>
     </div>
   </footer>
+
+  <!-- เชื่อมต่อ JavaScript ที่ดึงข้อมูล ThingSpeak -->
   <script src="assets/js/script.js"></script>
 </body>
 </html>
