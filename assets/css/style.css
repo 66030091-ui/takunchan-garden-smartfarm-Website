@@ -351,3 +351,59 @@ canvas.spark {
     width: 60px;
   }
 }
+/* === ปรับหัวข้อทุกหน้าให้อยู่ชิดซ้าย === */
+.section-title {
+  display: block;
+  width: 100%;
+  text-align: left;            /* ✅ ชิดซ้าย */
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--accent-2);
+  text-shadow: 0 0 20px var(--accent);
+  margin-top: 3rem;            /* ระยะห่างจาก section ด้านบน */
+  margin-bottom: 1rem;         /* ระยะก่อนกล่องข้อความ */
+  letter-spacing: 0.6px;
+  position: relative;
+  padding-left: 0.5rem;        /* ✅ ขยับเข้าเล็กน้อยจากขอบซ้าย */
+}
+
+/* ✅ เส้นเรืองใต้หัวข้อแบบชิดซ้าย */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;                     /* ✅ ชิดขอบซ้ายจริง */
+  width: 90px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  box-shadow: 0 0 15px var(--accent-2);
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+/* ✅ เพิ่มแอนิเมชันให้เส้นเรืองแบบพลังงาน IoT */
+@keyframes lineGlow {
+  0% { box-shadow: 0 0 10px var(--accent-2); opacity: 0.6; }
+  50% { box-shadow: 0 0 20px var(--accent); opacity: 1; }
+  100% { box-shadow: 0 0 10px var(--accent-2); opacity: 0.6; }
+}
+.section-title::after {
+  animation: lineGlow 3s ease-in-out infinite;
+}
+
+/* ✅ ระยะกล่อง card ใต้หัวข้อให้พอดี */
+.card {
+  margin-top: 0.75rem;
+}
+
+/* ✅ รองรับจอเล็ก (Mobile) */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+    padding-left: 0.25rem;
+    margin-top: 2rem;
+  }
+  .section-title::after {
+    width: 60px;
+  }
+}
