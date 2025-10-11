@@ -18,27 +18,84 @@ html, body {
 
 /* ===== HEADER ===== */
 header.site {
-  background: rgba(15, 23, 42, 0.8);
-  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25);
   backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ==== โลโก้ + ชื่อสวน (ซ้ายมือ) ==== */
 .brand {
-  display:flex; align-items:center; gap:.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
+
+/* ✅ โลโก้ใหญ่ขึ้น + เงาเรือง */
 .brand .logo {
-  width:42px; height:42px; border-radius:14px;
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  display:grid; place-items:center; color:white; font-weight:800;
-  box-shadow: 0 0 12px var(--accent);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 255, 200, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.brand .logo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px rgba(0, 255, 200, 1);
+}
+.brand .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  filter: drop-shadow(0 0 10px var(--accent-2));
+}
+
+/* ✅ ขยายชื่อสวนให้ชัดเจน */
+.brand div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.brand div:nth-child(2) > div:first-child {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--accent-2);
+  text-shadow: 0 0 25px var(--accent);
+  letter-spacing: 0.5px;
+}
+.brand div:nth-child(2) > div:last-child {
+  font-size: 1.05rem;
+  color: #7dd3fc;
+  font-weight: 500;
+}
+
+/* ===== เมนูหลัก (ขวามือ) ===== */
 nav.main {
-  display:flex; gap:1rem; flex-wrap:wrap;
+  display:flex;
+  gap:1.25rem;
+  flex-wrap:wrap;
 }
 nav.main a {
   color: var(--ink);
-  padding:.5rem .75rem;
+  padding:.6rem 1rem;
   border-radius:.75rem;
   transition:.3s;
+  font-weight:500;
 }
 nav.main a.active, nav.main a:hover {
   background: rgba(0, 234, 255, .15);
@@ -74,6 +131,7 @@ nav.main a.active, nav.main a:hover {
   font-size: 1rem;
 }
 
+/* ===== ปุ่ม ===== */
 .btn {
   display:inline-block;
   padding:.625rem 1rem;
@@ -206,15 +264,15 @@ footer.site {
   color: var(--accent);
   font-weight:600;
 }
+
 /* === ตารางพารามิเตอร์ในหน้า IoT === */
 .table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;          /* ✅ ทำให้คอลัมน์มีขนาดคงที่ */
+  table-layout: fixed;
   text-align: left;
   margin-top: .5rem;
 }
-
 .table th, .table td {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0.5rem 0.75rem;
@@ -223,44 +281,27 @@ footer.site {
   vertical-align: middle;
   word-wrap: break-word;
 }
-
-/* ✅ สัดส่วนคอลัมน์ */
 .table th:nth-child(1),
-.table td:nth-child(1) {
-  width: 35%;   /* พารามิเตอร์ */
-}
-
+.table td:nth-child(1) { width: 35%; }
 .table th:nth-child(2),
-.table td:nth-child(2) {
-  width: 25%;   /* ค่า */
-  text-align: center;
-}
-
+.table td:nth-child(2) { width: 25%; text-align: center; }
 .table th:nth-child(3),
-.table td:nth-child(3) {
-  width: 40%;   /* หมายเหตุ */
-}
-
-/* ✅ เส้นแบ่งคอลัมน์ */
+.table td:nth-child(3) { width: 40%; }
 .table td + td {
   border-left: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-/* ✅ หัวตาราง */
 .table thead th {
   color: var(--accent);
   font-weight: 700;
   text-shadow: 0 0 8px var(--accent-2);
   border-bottom: 1px solid rgba(0, 255, 255, 0.2);
 }
-
-/* ✅ แถว hover effect */
 .table tbody tr:hover {
   background: rgba(0, 255, 255, 0.05);
   transition: 0.3s;
 }
 
-/* ✅ เพิ่มความสวยงามให้ chart section */
+/* === กราฟ === */
 canvas.spark {
   border-radius: 8px;
   background: rgba(15, 23, 42, 0.6);
