@@ -1,11 +1,121 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Takunchan Garden — สวน + IoT</title>
+  <title>Takunchan Garden — Smart Farm IoT</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ===== HERO SECTION HI-TECH STYLE ===== */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 3rem 1rem;
+      background: radial-gradient(circle at 30% 40%, #001c20, #000);
+      border-radius: 20px;
+      box-shadow: 0 0 40px #00ffe0 inset, 0 0 50px #00a2ff;
+      color: #bafaff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://www.transparenttextures.com/patterns/cubes.png");
+      opacity: 0.1;
+    }
+
+    .hero .card {
+      flex: 1;
+      min-width: 300px;
+      z-index: 2;
+      background: rgba(0, 30, 35, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    }
+
+    .hero h1 {
+      color: #4fffb0;
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-shadow: 0 0 25px #00ffaa;
+    }
+
+    .hero h2 {
+      color: #00eaff;
+      font-size: 1.2rem;
+      margin-top: .5rem;
+    }
+
+    .hero p {
+      color: #c2f7ff;
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      padding: .6rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: .3s;
+    }
+
+    .btn.secondary {
+      background: linear-gradient(90deg, #00eaff, #00ffa8);
+      color: #001f2a;
+      box-shadow: 0 0 15px #00ffe0;
+    }
+
+    .btn.ghost {
+      border: 1.5px solid #00eaff;
+      color: #00eaff;
+    }
+
+    .btn.secondary:hover {
+      background: linear-gradient(90deg, #00ffa8, #00eaff);
+      transform: scale(1.05);
+    }
+
+    .hero-illus {
+      flex: 1;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-illus img {
+      max-width: 100%;
+      filter: drop-shadow(0 0 20px #00eaff);
+      border-radius: 20px;
+    }
+
+    /* ===== FOOTER TEXT EFFECT ===== */
+    .glow-text {
+      color: #00c9ff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-shadow: 0 0 12px #00eaff;
+      text-align: center;
+      margin-top: 1rem;
+      animation: floatText 6s ease-in-out infinite;
+    }
+
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); opacity: 0.9; }
+      50% { transform: translateY(-6px); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
   <header class="site">
@@ -27,76 +137,44 @@
   </header>
 
   <main class="container">
-   <section class="hero">
-  <div class="card" style="background:linear-gradient(135deg,#dcfce7,#f0f9ff);padding:2rem">
-    <h1 style="margin-top:0;color:#14532d">
-      🌳 สวนทุเรียนตระกูลจัน
-    </h1>
-    <h2 style="color:#065f46;margin-top:.25rem">
-      ระบบบริหารจัดการน้ำอัจฉริยะด้วยเทคโนโลยี IoT
-    </h2>
-    <p style="color:#334155;line-height:1.6">
-      สวนทุเรียนในอำเภอโพธาราม จังหวัดราชบุรี ที่นำเทคโนโลยี ESP32, เซนเซอร์วัดความชื้น และระบบ Sensor Moisture
-      มาช่วยควบคุมการรดน้ำอย่างแม่นยำ เพื่อเพิ่มคุณภาพผลผลิตและลดการใช้น้ำอย่างยั่งยืนและมีประสิทธิภาพ
-    </p>
+    <!-- 🌟 HERO HI-TECH SECTION -->
+    <section class="hero">
+      <div class="card">
+        <h1>🌳 สวนทุเรียนตระกูลจัน</h1>
+        <h2>ระบบบริหารจัดการน้ำอัจฉริยะด้วยเทคโนโลยี IoT</h2>
+        <p>
+          สวนทุเรียนในอำเภอโพธาราม จังหวัดราชบุรี ที่นำเทคโนโลยี ESP32, Sensor Moisture และระบบ Smart Pump 
+          มาช่วยควบคุมการรดน้ำอย่างแม่นยำ เพื่อเพิ่มคุณภาพผลผลิตและลดการใช้น้ำอย่างยั่งยืน
+        </p>
+        <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="iot.html" class="btn secondary">🔗 ดูระบบ IoT</a>
+          <a href="about.html" class="btn ghost">ℹ️ เกี่ยวกับสวน</a>
+        </div>
+      </div>
+      <div class="hero-illus">
+        <img src="assets/img/hero.svg" alt="Takunchan Garden IoT System">
+        <div class="glow-text">Real-Time Data Transmission Between Field Sensor And Cloud System</div>
+      </div>
+    </section>
 
-    <div style="margin-top:1.2rem;display:flex;gap:1rem;flex-wrap:wrap">
-      <a href="iot.html" class="btn secondary">ดูระบบ IoT</a>
-      <a href="about.html" class="btn ghost">เกี่ยวกับสวน</a>
-    </div>
-  </div>
-
-  <div class="hero-illus">
-    <img src="assets/img/hero.svg" alt="Takunchan Garden IoT System" style="max-width:90%;border-radius:12px">
-  </div>
-</section>
-
-
-    <section style="margin-top:1.5rem">
+    <!-- จุดเด่น -->
+    <section style="margin-top:2rem">
       <h2 class="section-title">จุดเด่นของเรา</h2>
       <div class="grid-3">
         <div class="card">
           <h3>รดน้ำอัตโนมัติ</h3>
-          <p class="kv"><span class="dot"></span> ควบคุมด้วย ESP32 และ Sensor Moisture</p>
-          <p class="kv"><span class="dot"></span> ระบบตั้งโหมด Auto/Manual ได้</p>
+          <p>ควบคุมด้วย ESP32 และ Sensor Moisture</p>
+          <p>ระบบตั้งโหมด Auto / Manual ได้</p>
         </div>
         <div class="card">
           <h3>ข้อมูลแบบเรียลไทม์</h3>
-          <p class="kv"><span class="dot"></span> บันทึกและแสดงผลความชื้น</p>
-          <p class="kv"><span class="dot"></span> Mock Dashboard ในหน้านี้</p>
+          <p>บันทึกและแสดงผลความชื้นในดิน</p>
+          <p>เชื่อมต่อกับ ThingSpeak / Firebase</p>
         </div>
         <div class="card">
           <h3>พลังงานยั่งยืน</h3>
-          <p class="kv"><span class="dot"></span> รองรับโซลาร์เซลล์/แบตเตอรี่</p>
-          <p class="kv"><span class="dot"></span> ใช้พลังงานสังเคราะห์อย่างมีประสิทธิภาพ</p>
-        </div>
-      </div>
-    </section>
-
-    <section style="margin-top:1.5rem">
-      <div class="dashboard">
-        <div class="tile">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <h3>สรุปสถานะสวน</h3>
-            <a class="btn secondary" href="iot.html">รายละเอียดระบบ</a>
-          </div>
-          <div style="display:grid;gap:1rem;grid-template-columns:1fr 1fr;align-items:center;margin-top:.5rem">
-            <div>
-              <div style="color:var(--muted);font-weight:600">ความชื้นในดิน</div>
-              <div class="metric" id="metric-moist">-- %</div>
-              <div class="status on" id="pump-status">
-                <span class="dot"></span>
-                <div><strong>ปั๊ม</strong> <span class="label">ON</span></div>
-              </div>
-            </div>
-            <canvas class="spark" id="spark"></canvas>
-          </div>
-        </div>
-        <div class="tile">
-          <h3>ประกาศ</h3>
-          <div class="notice">
-            นี่คือข้อมูลจำลองเพื่อสาธิต UI — เมื่อต้องการเชื่อมต่อข้อมูลจริง สามารถปรับ <code>script.js</code> ให้ fetch จาก ThingSpeak / Firebase / API ของคุณ
-          </div>
+          <p>รองรับการทำงานร่วมกับโซลาร์เซลล์</p>
+          <p>ใช้พลังงานได้อย่างมีประสิทธิภาพสูงสุด</p>
         </div>
       </div>
     </section>
@@ -105,9 +183,8 @@
   <footer class="site">
     <div class="container footer-inner">
       <div>© 2025 Takunchan Garden — อ.โพธาราม จ.ราชบุรี</div>
-      <div>ติดต่อ: takunchangarden@gmail.com</div>
+      <div>ESP32 • Node-RED • ThingSpeak • Firebase</div>
     </div>
   </footer>
-  <script src="assets/js/script.js"></script>
 </body>
 </html>
