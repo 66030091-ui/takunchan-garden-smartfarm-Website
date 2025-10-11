@@ -5,15 +5,130 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ระบบ IoT — Takunchan Garden</title>
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    body {
+      background: radial-gradient(circle at 20% 30%, #010b10, #000);
+      color: var(--ink);
+    }
+
+    .section-title {
+      color: var(--accent);
+      text-shadow: 0 0 12px var(--accent-2);
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+      box-shadow: 0 0 25px rgba(0,255,255,0.08);
+      color: #c7f9ff;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .sys-diagram {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 12px;
+      margin: 1rem auto;
+      display: block;
+      box-shadow: 0 0 25px rgba(0,255,255,0.15);
+    }
+
+    .dashboard {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1.2fr .8fr;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 900px){ .dashboard{ grid-template-columns: 1fr; } }
+
+    .tile {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 14px;
+      padding: 1.25rem;
+      box-shadow: 0 0 20px rgba(0,255,255,0.08);
+    }
+
+    table.table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      color: #d8faff;
+    }
+    table.table th, table.table td {
+      padding: .6rem;
+      border-bottom: 1px solid rgba(0,255,255,0.15);
+      text-align: left;
+    }
+    table.table th {
+      color: var(--accent);
+      text-shadow: 0 0 8px var(--accent-2);
+    }
+
+    .status .dot { box-shadow: 0 0 10px #22c55e; }
+    .status.on .dot { background: #22c55e; }
+    .status.off .dot { background: #ef4444; box-shadow: 0 0 10px #ef4444; }
+
+    .notice {
+      background: rgba(0, 255, 255, 0.05);
+      color: #99f6e4;
+      border: 1px solid rgba(0,255,255,0.2);
+      border-radius: 10px;
+      padding: .75rem;
+      box-shadow: 0 0 15px rgba(0,255,255,0.1);
+      text-align: center;
+    }
+
+    footer.site {
+      margin-top: 3rem;
+      border-top: 1px solid rgba(0,255,255,0.2);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      color: var(--muted);
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    /* โลโก้ */
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #00eaff, #00ffae);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      box-shadow: 0 0 20px #00eaff;
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      filter: drop-shadow(0 0 10px #00ffae);
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover { transform: scale(1.1); }
+  </style>
 </head>
+
 <body>
   <header class="site">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
       <div class="brand">
-        <div class="logo">TG</div>
+        <div class="logo">
+          <img src="assets/img/logo.png" alt="Takunchan Garden Logo">
+        </div>
         <div>
-          <div style="font-weight:800;font-size:1.1rem">Takunchan Garden</div>
-          <div style="font-size:.9rem;color:var(--muted)">Smart Farm • IoT • Durian</div>
+          <div style="font-weight:800;font-size:1.1rem;color:#00ffa8;">Takunchan Garden</div>
+          <div style="font-size:.9rem;color:#7dd3fc;">Smart Farm • IoT • Durian</div>
         </div>
       </div>
       <nav class="main">
@@ -26,19 +141,20 @@
   </header>
 
   <main class="container">
-    <h1 class="section-title">แผนผังระบบรดน้ำอัตโนมัติ</h1>
+    <h1 class="section-title">💧 แผนผังระบบรดน้ำอัตโนมัติ</h1>
     <div class="card">
       <img class="sys-diagram" src="assets/img/system-diagram.svg" alt="System Diagram: ESP32 + Sensors + Pump + Cloud">
-      <p style="color:var(--muted)">
-        ESP32 รับค่าความชื้นจากเซนเซอร์ ควบคุมรีเลย์/ปั๊ม และส่งข้อมูลขึ้น Cloud (Node-RED / ThingSpeak / Firebase)
-        เพื่อดูข้อมูลและสั่งงานระยะไกล
+      <p>
+        ระบบ IoT ของสวนตระกูลจันใช้ <strong>ESP32</strong> รับค่าความชื้นจากเซนเซอร์  
+        ควบคุมการทำงานของ <strong>รีเลย์และปั๊มน้ำ</strong>  
+        พร้อมส่งข้อมูลขึ้น <strong>Cloud (Node-RED / ThingSpeak / Firebase)</strong>  
+        เพื่อให้สามารถดูสถานะและสั่งงานได้แบบเรียลไทม์จากทุกที่
       </p>
     </div>
 
-    <h2 class="section-title">แดชบอร์ดสถานะ (ข้อมูลจริงจาก ThingSpeak)</h2>
+    <h2 class="section-title">📊 แดชบอร์ดสถานะ (ข้อมูลจริงจาก ThingSpeak)</h2>
     <div class="dashboard">
       <div class="tile">
-        <!-- แสดงโหมดปัจจุบัน -->
         <div style="display:flex;gap:1rem;align-items:center">
           <div style="width:10px;height:10px;border-radius:999px;background:#22c55e"></div>
           <div>
@@ -47,7 +163,6 @@
           </div>
         </div>
 
-        <!-- ตารางแสดงค่าพารามิเตอร์ -->
         <table class="table" style="margin-top:.75rem">
           <thead>
             <tr><th>พารามิเตอร์</th><th>ค่า</th><th>หมายเหตุ</th></tr>
@@ -75,15 +190,14 @@
           </tbody>
         </table>
 
-        <!-- กราฟความชื้นย้อนหลัง -->
         <canvas id="spark" style="margin-top:1rem;height:220px;"></canvas>
       </div>
 
       <div class="tile">
-        <h3>การเชื่อมต่อข้อมูลจริง</h3>
+        <h3 style="color:var(--accent);text-shadow:0 0 10px var(--accent-2);">การเชื่อมต่อข้อมูลจริง</h3>
         <p class="notice">
           หน้านี้ดึงข้อมูลจริงจาก <strong>ThingSpeak Channel ID 3069958</strong><br>
-          อัปเดตทุก 15 วินาที (Read API Key: TX73L46FK87FRFGQ)
+          อัปเดตทุก 15 วินาที (Read API Key: <code>TX73L46FK87FRFGQ</code>)
         </p>
       </div>
     </div>
@@ -96,7 +210,6 @@
     </div>
   </footer>
 
-  <!-- โหลด Chart.js และสคริปต์หลัก -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="assets/js/script.js"></script>
 </body>

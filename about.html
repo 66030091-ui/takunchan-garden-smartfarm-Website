@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -6,15 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>เกี่ยวกับสวน — Takunchan Garden</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      background: radial-gradient(circle at 20% 30%, #010b10, #000);
+      color: var(--ink);
+    }
+
+    .section-title {
+      color: var(--accent);
+      text-shadow: 0 0 12px var(--accent-2);
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+      box-shadow: 0 0 25px rgba(0,255,255,0.08);
+      color: #c7f9ff;
+      line-height: 1.7;
+    }
+
+    .card strong {
+      color: var(--accent-2);
+    }
+
+    footer.site {
+      margin-top: 3rem;
+      border-top: 1px solid rgba(0,255,255,0.2);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      color: var(--muted);
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    /* โลโก้ใน Header */
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #00eaff, #00ffae);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      box-shadow: 0 0 20px #00eaff;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      filter: drop-shadow(0 0 10px #00ffae);
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
+
 <body>
   <header class="site">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
       <div class="brand">
-        <div class="logo">TG</div>
+        <div class="logo">
+          <img src="assets/img/logo.png" alt="Takunchan Garden Logo">
+        </div>
         <div>
-          <div style="font-weight:800;font-size:1.1rem">Takunchan Garden</div>
-          <div style="font-size:.9rem;color:var(--muted)">Smart Farm • IoT • Durian</div>
+          <div style="font-weight:800;font-size:1.1rem;color:#00ffa8;">Takunchan Garden</div>
+          <div style="font-size:.9rem;color:#7dd3fc;">Smart Farm • IoT • Durian</div>
         </div>
       </div>
       <nav class="main">
@@ -27,23 +92,32 @@
   </header>
 
   <main class="container">
-    <h1 class="section-title">สวนทุเรียนตระกูลจัน</h1>
+    <h1 class="section-title">🌳 เกี่ยวกับสวนทุเรียนตระกูลจัน</h1>
+
     <div class="card">
-      <p>สวนของเราตั้งอยู่ในอำเภอโพธาราม จังหวัดราชบุรี มุ่งเน้นการผลิตทุเรียนคุณภาพสูง พร้อมนำเทคโนโลยี IoT มาปรับใช้เพื่อเพิ่มประสิทธิภาพการใช้น้ำ ปุ๋ย และแรงงาน</p>
-      <p>พันธุ์หลักที่ปลูก ได้แก่ หมอนทอง ชะนี และก้านยาว พร้อมแนวทางดูแลแบบยั่งยืนและเป็นมิตรต่อสิ่งแวดล้อม</p>
+      <p>
+        สวนของเราตั้งอยู่ใน <strong>อำเภอโพธาราม จังหวัดราชบุรี</strong>  
+        มุ่งเน้นการผลิตทุเรียนคุณภาพสูงโดยใช้เทคโนโลยี <strong>IoT</strong> 
+        เพื่อบริหารจัดการน้ำ ปุ๋ย และแรงงานให้เกิดประสิทธิภาพสูงสุด
+      </p>
+      <p>
+        พันธุ์หลักที่ปลูก ได้แก่ <strong>หมอนทอง</strong>, <strong>ชะนี</strong>, และ <strong>ก้านยาว</strong>  
+        โดยยึดแนวทางการปลูกแบบยั่งยืน เป็นมิตรต่อสิ่งแวดล้อม และใช้ระบบตรวจวัดความชื้นในดินแบบเรียลไทม์
+      </p>
     </div>
 
     <h2 class="section-title">ข้อมูลติดต่อ</h2>
     <div class="card">
       <p><strong>ที่ตั้ง:</strong> อ.โพธาราม จ.ราชบุรี</p>
-      <p><strong>อีเมล:</strong> takunchan.garden@example.com</p>
+      <p><strong>อีเมล:</strong> takunchangarden@gmail.com</p>
+      <p><strong>โทรศัพท์:</strong> 08X-XXX-XXXX</p>
     </div>
   </main>
 
   <footer class="site">
     <div class="container footer-inner">
-      <div>© 2025 Takunchan Garden</div>
-      <div>ทำด้วยรักต่อทุเรียนและเทคโนโลยี</div>
+      <div>© 2025 Takunchan Garden — อ.โพธาราม จ.ราชบุรี</div>
+      <div>ทำด้วย 💚 เพื่อทุเรียนและเทคโนโลยี</div>
     </div>
   </footer>
 </body>
