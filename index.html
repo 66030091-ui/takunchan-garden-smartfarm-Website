@@ -14,7 +14,8 @@
       justify-content: space-between;
       align-items: center;
       gap: 2rem;
-      padding: 3rem 1.5rem;
+      padding: 3.5rem 1.5rem;  /* ✅ เพิ่มช่องว่างบน */
+      margin-top: 2rem;        /* ✅ เผื่อ header ทับ */
       background: radial-gradient(circle at 30% 40%, #00161b, #000);
       border-radius: 20px;
       box-shadow: 0 0 40px #00ffe0 inset, 0 0 50px #00a2ff;
@@ -44,16 +45,16 @@
 
     .hero h1 {
       color: #4fffb0;
-      font-size: 1.9rem;
+      font-size: 2.1rem;  /* ✅ ขยายหัวเรื่องหลัก */
       font-weight: 800;
       text-shadow: 0 0 25px #00ffaa;
-      margin: 0;
+      margin: 0 0 .5rem;
     }
 
     .hero h2 {
       color: #00eaff;
       font-size: 1.25rem;
-      margin-top: .5rem;
+      margin-top: .25rem;
       font-weight: 600;
     }
 
@@ -127,8 +128,8 @@
 
     /* ===== LOGO ===== */
     .logo {
-      width: 52px;
-      height: 52px;
+      width: 58px;
+      height: 58px;
       border-radius: 14px;
       background: linear-gradient(135deg, #00eaff, #00ffae);
       display: grid;
@@ -149,8 +150,21 @@
     .logo img:hover {
       transform: scale(1.1);
     }
+
+    /* ===== เพิ่ม section spacing ===== */
+    section {
+      margin-top: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      color: #00eaff;
+      text-shadow: 0 0 15px #00ffa8;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
+
 <body>
   <header class="site">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
@@ -159,8 +173,8 @@
           <img src="assets/img/logo.png" alt="Takunchan Garden Logo">
         </div>
         <div>
-          <div style="font-weight:800;font-size:1.1rem;color:#00ffa8;">Takunchan Garden</div>
-          <div style="font-size:.9rem;color:#7dd3fc;">Smart Farm • IoT • Durian</div>
+          <div style="font-weight:800;font-size:1.25rem;color:#00ffa8;">Takunchan Garden</div>
+          <div style="font-size:.95rem;color:#7dd3fc;">Smart Farm • IoT • Durian</div>
         </div>
       </div>
       <nav class="main">
@@ -195,7 +209,7 @@
     </section>
 
     <!-- จุดเด่น -->
-    <section style="margin-top:2rem">
+    <section>
       <h2 class="section-title">จุดเด่นของเรา</h2>
       <div class="grid-3">
         <div class="card">

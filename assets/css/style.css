@@ -308,3 +308,46 @@ canvas.spark {
   box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
   padding: 6px;
 }
+/* === แก้ไขตำแหน่งหัวข้อทุกหน้าให้สวย === */
+.section-title {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-2);
+  text-shadow: 0 0 18px var(--accent);
+  margin-top: 3rem;        /* ✅ ระยะห่างจาก section ก่อนหน้า */
+  margin-bottom: 1rem;     /* ✅ หัวข้อจะอยู่เหนือกล่องพอดี */
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+/* ✅ เพิ่มเส้นเรืองแสงใต้หัวข้อ */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  box-shadow: 0 0 12px var(--accent-2);
+  border-radius: 2px;
+}
+
+/* ✅ ปรับระยะกล่อง card ให้ไม่เบียดหัวข้อ */
+.card {
+  margin-top: 0.5rem;
+}
+
+/* ✅ เวอร์ชันจอเล็ก (มือถือ) */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.4rem;
+    margin-top: 2.5rem;
+  }
+  .section-title::after {
+    width: 60px;
+  }
+}
