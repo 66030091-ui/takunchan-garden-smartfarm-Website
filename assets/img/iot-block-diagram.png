@@ -1,5 +1,0 @@
-<img 
-  class="sys-diagram"
-  src="/assets/img/iot-block-diagram.png" 
-  alt="IoT Block Diagram: ESP32 + Sensors + Cloud"
-  style="max-width:600px;display:block;margin:1rem auto;border-radius:12px;box-shadow:0 0 25px rgba(0,255,255,0.15);background:radial-gradient(circle at center,rgba(0,255,255,0.05),rgba(0,0,0,0.3));">
