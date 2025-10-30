@@ -407,3 +407,90 @@ canvas.spark {
     width: 60px;
   }
 }
+/* ============================================================
+   💧 แอนิเมชันระบบรดน้ำอัตโนมัติ (Takunchan Garden Smart Farm)
+   ============================================================ */
+.watering-scene {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  margin-top: 1.25rem;
+  border-radius: 14px;
+  overflow: hidden;
+  background: radial-gradient(circle at 40% 90%, rgba(0,255,255,0.08), rgba(0,0,0,0.4));
+  box-shadow: 0 0 30px rgba(0,255,255,0.1);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sprinkler {
+  position: absolute;
+  left: 50%;
+  bottom: 35px;
+  width: 70px;
+  height: 18px;
+  background: linear-gradient(to bottom, #222, #111);
+  border-radius: 6px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px rgba(0,255,255,0.25);
+}
+
+/* น้ำที่พ่นออกมา */
+.water-jet {
+  position: absolute;
+  left: 50%;
+  bottom: 45px;
+  width: 4px;
+  height: 75px;
+  background: linear-gradient(to bottom, rgba(0,255,255,0.9), transparent);
+  border-radius: 3px;
+  transform-origin: top center;
+  animation: waterFlow 1s infinite ease-in-out;
+  box-shadow: 0 0 15px rgba(0,255,255,0.6);
+  filter: drop-shadow(0 0 10px rgba(0,255,255,0.8));
+}
+
+/* ต้นไม้ (ต้นทุเรียนเล็ก) */
+.plant {
+  position: absolute;
+  left: 25%;
+  bottom: 10px;
+  width: 35px;
+  height: 60px;
+  background: linear-gradient(to top, #1a3, #3f6);
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00ff9966;
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* เซนเซอร์ความชื้น */
+.sensor {
+  position: absolute;
+  right: 20%;
+  bottom: 15px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #00ffa8, #00eaff);
+  border-radius: 50%;
+  box-shadow: 0 0 15px #00ffcc;
+  filter: brightness(1.1);
+}
+
+/* แอนิเมชันการพ่นน้ำ */
+@keyframes waterFlow {
+  0%, 100% { transform: scaleY(1); opacity: 0.9; }
+  50% { transform: scaleY(1.4); opacity: 0.6; }
+}
+
+/* แอนิเมชันต้นไม้โยก */
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* ✅ ซ่อนการพ่นน้ำถ้าปั๊มปิด (ใช้ JS toggle class pump-on/off) */
+body:not(.pump-on) .water-jet {
+  display: none;
+}

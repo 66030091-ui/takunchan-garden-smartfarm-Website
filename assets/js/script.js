@@ -4,35 +4,45 @@ const READ_API_KEY = "TX73L46FK87FRFGQ";
 const FEED_URL = `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds.json?results=20&api_key=${READ_API_KEY}`;
 
 const moistEl = document.getElementById("metric-moist");
+const npkEl = document.getElementById("metric-npk"); // เพิ่มกรณีมี NPK
 const pumpEl = document.getElementById("pump-status");
 const modeEl = document.getElementById("mode-status");
 const modeTableEl = document.getElementById("mode-status-table");
 
-// ตัวแปรกราฟ
 const ctx = document.getElementById("spark");
 let moistChart;
 
-// ฟังก์ชันหลัก ดึงข้อมูลจาก ThingSpeak
+// === ฟังก์ชันควบคุมแอนิเมชันรดน้ำ IoT ===
+function updatePumpAnimation(isOn) {
+  if (isOn) {
+    document.body.classList.add("pump-on");
+  } else {
+    document.body.classList.remove("pump-on");
+  }
+}
+
+// === ฟังก์ชันหลัก: ดึงข้อมูลจาก ThingSpeak ===
 async function fetchThingSpeak() {
   try {
     const res = await fetch(FEED_URL);
     const data = await res.json();
 
     if (data.feeds && data.feeds.length > 0) {
-      // ข้อมูลล่าสุด
       const latest = data.feeds[data.feeds.length - 1];
-      const moisture = parseFloat(latest.field1);
-      const pumpState = parseInt(latest.field2);
-      const modeValue = latest.field3;
-      let mode = "-";
 
-      // ✅ แปลงค่าจาก field3: 1 = AUTO, 0 = MANUAL
+      const moisture = parseFloat(latest.field1);
+      const pumpState = parseInt(latest.field2);   // field2 = ปั๊มน้ำ
+      const modeValue = latest.field3;             // field3 = โหมด AUTO/MANUAL
+      const npkValue = latest.field4;              // field4 = NPK (ถ้ามี)
+
+      let mode = "-";
       if (modeValue === "1") mode = "AUTO";
       else if (modeValue === "0") mode = "MANUAL";
 
       // 🧾 แสดงค่าล่าสุดบนหน้าเว็บ
       if (moistEl) moistEl.textContent = `${moisture.toFixed(1)} %`;
-
+      if (npkEl && npkValue) npkEl.textContent = `${npkValue}`;
+      
       if (pumpEl) {
         pumpEl.classList.toggle("on", pumpState === 1);
         pumpEl.classList.toggle("off", pumpState !== 1);
@@ -43,6 +53,9 @@ async function fetchThingSpeak() {
       if (modeEl) modeEl.textContent = mode;
       if (modeTableEl) modeTableEl.textContent = mode;
 
+      // 💧 อัปเดตแอนิเมชันรดน้ำตามสถานะปั๊ม
+      updatePumpAnimation(pumpState === 1);
+
       // 📊 เตรียมข้อมูลสำหรับกราฟ
       const moistData = data.feeds.map(f => parseFloat(f.field1));
       const labels = data.feeds.map(f => {
@@ -50,12 +63,13 @@ async function fetchThingSpeak() {
         return t.toLocaleTimeString("th-TH", { hour: "2-digit", minute: "2-digit" });
       });
 
-      // ถ้ามีกราฟอยู่แล้วให้ update ค่าใหม่
       if (moistChart) {
+        // อัปเดตข้อมูลกราฟเดิม
         moistChart.data.labels = labels;
         moistChart.data.datasets[0].data = moistData;
         moistChart.update();
       } else if (ctx) {
+        // สร้างกราฟใหม่
         moistChart = new Chart(ctx, {
           type: "line",
           data: {
@@ -68,7 +82,7 @@ async function fetchThingSpeak() {
               tension: 0.3,
               fill: true,
               pointRadius: 2,
-              pointBackgroundColor: moistData.map(v => (v < 35 ? "#ef4444" : "#10b981")) // จุดแดงเมื่อแห้ง
+              pointBackgroundColor: moistData.map(v => (v < 35 ? "#ef4444" : "#10b981"))
             }]
           },
           options: {
@@ -76,15 +90,25 @@ async function fetchThingSpeak() {
             scales: {
               y: {
                 beginAtZero: true,
-                title: { display: true, text: "%" }
+                title: { display: true, text: "%" },
+                ticks: { color: "#9ca3af" },
+                grid: { color: "rgba(255,255,255,0.05)" }
               },
               x: {
-                title: { display: true, text: "เวลา" }
+                title: { display: true, text: "เวลา" },
+                ticks: { color: "#9ca3af" },
+                grid: { color: "rgba(255,255,255,0.05)" }
               }
             },
             plugins: {
               legend: { display: false },
-              tooltip: { mode: "index", intersect: false }
+              tooltip: {
+                mode: "index",
+                intersect: false,
+                backgroundColor: "rgba(0,0,0,0.7)",
+                titleColor: "#00ffae",
+                bodyColor: "#e2e8f0"
+              }
             }
           }
         });
