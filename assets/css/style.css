@@ -499,34 +499,34 @@ body:not(.pump-on) .water-jet {
    ============================================================ */
 .notice {
   position: relative;
-  background: linear-gradient(145deg, rgba(0, 80, 90, 0.8), rgba(0, 20, 25, 0.9));
-  /* ✅ เปลี่ยนพื้นหลังให้มีสีอมเขียวมรกต โปร่งใสเล็กน้อย */
-  color: #e0faff;
+  background: linear-gradient(145deg, rgba(0,40,50,0.85), rgba(0,15,20,0.9));
+  /* ✅ เขียวอมฟ้าเข้ม ดูหรูและอ่านง่าย */
+  color: #e6ffff;
   border: 1px solid rgba(0,255,255,0.35);
-  border-radius: 14px;
+  border-radius: 18px;
   text-align: center;
-  padding: 1.8rem 2.5rem;
-  line-height: 1.85;
-  font-size: 1.08rem;
-  max-width: 950px;
-  margin: 1.5rem auto 0 auto;
-  backdrop-filter: blur(10px);
-  text-shadow: 0 0 8px rgba(0,255,255,0.15);
-  letter-spacing: 0.3px;
+  padding: 2rem 2.8rem;
+  line-height: 1.9;
+  font-size: 1.12rem;
+  width: 95%;                /* ✅ ทำให้เกือบเต็มจอแต่ยังมีระยะขอบ */
+  margin: 1.5rem auto;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(0,255,255,0.15);
+  letter-spacing: 0.4px;
   overflow: hidden;
-  box-shadow: 0 0 25px rgba(0,255,255,0.15);
+  text-shadow: 0 0 10px rgba(0,255,255,0.2);
 }
 
-/* ✅ แถบเรืองแสงเคลื่อนไหวรอบกรอบ */
+/* ✅ กรอบเรืองแสงเคลื่อนไหวรอบกล่อง */
 .notice::before {
   content: "";
   position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  inset: -2px;
   background: linear-gradient(120deg, #00ffaa, #00eaff, #0077ff, #00ffaa);
   background-size: 400% 400%;
   z-index: -1;
   filter: blur(4px);
-  border-radius: 16px;
+  border-radius: 20px;
   animation: borderGlow 6s linear infinite;
 }
 
@@ -536,13 +536,20 @@ body:not(.pump-on) .water-jet {
   100% { background-position: 0% 50%; }
 }
 
+/* ✅ ปรับตัวอักษรให้คมชัดและสวยงาม */
 .notice strong {
-  color: var(--accent-2);
+  color: #00ffd5;
   font-weight: 700;
+  text-shadow: 0 0 8px rgba(0,255,255,0.6);
 }
-
 .notice em {
-  color: #aefaff;
+  color: #bdfcff;
   font-style: normal;
   font-weight: 300;
 }
+.notice span.icon {
+  font-size: 1.3rem;
+  color: #00ffe0;
+  filter: drop-shadow(0 0 5px #00ffae);
+}
+
