@@ -495,61 +495,33 @@ body:not(.pump-on) .water-jet {
   display: none;
 }
 /* ============================================================
-   🌿 กล่องข้อความแสดงคำอธิบาย (NOTICE BOX – Takunchan Garden)
+   🌿 กล่องข้อความแบบอ่านง่าย (Notice Box – Clean Version)
    ============================================================ */
 .notice {
-  position: relative;
-  background: linear-gradient(145deg, rgba(0,40,50,0.85), rgba(0,15,20,0.9));
-  /* ✅ เขียวอมฟ้าเข้ม ดูหรูและอ่านง่าย */
-  color: #e6ffff;
-  border: 1px solid rgba(0,255,255,0.35);
-  border-radius: 18px;
+  background: rgba(0, 80, 90, 0.4);     /* ฟ้าอมเขียวอ่อน โปร่งเล็กน้อย */
+  color: #e8f9ff;                       /* ตัวอักษรขาวฟ้าอ่านสบาย */
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 16px;
   text-align: center;
-  padding: 2rem 2.8rem;
+  padding: 1.8rem 2rem;
   line-height: 1.9;
-  font-size: 1.12rem;
-  width: 95%;                /* ✅ ทำให้เกือบเต็มจอแต่ยังมีระยะขอบ */
+  font-size: 1.08rem;
+  width: 90%;
   margin: 1.5rem auto;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 30px rgba(0,255,255,0.15);
-  letter-spacing: 0.4px;
-  overflow: hidden;
-  text-shadow: 0 0 10px rgba(0,255,255,0.2);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(6px);           /* เบลอพื้นหลังเล็กน้อย */
 }
 
-/* ✅ กรอบเรืองแสงเคลื่อนไหวรอบกล่อง */
-.notice::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(120deg, #00ffaa, #00eaff, #0077ff, #00ffaa);
-  background-size: 400% 400%;
-  z-index: -1;
-  filter: blur(4px);
-  border-radius: 20px;
-  animation: borderGlow 6s linear infinite;
-}
-
-@keyframes borderGlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* ✅ ปรับตัวอักษรให้คมชัดและสวยงาม */
+/* ปรับสีตัวอักษรภายในให้สบายตา */
 .notice strong {
-  color: #00ffd5;
+  color: #4ef4ff;      /* ฟ้าเด่นแต่ไม่แสบตา */
   font-weight: 700;
-  text-shadow: 0 0 8px rgba(0,255,255,0.6);
 }
 .notice em {
-  color: #bdfcff;
+  color: #b8eaff;
   font-style: normal;
-  font-weight: 300;
 }
 .notice span.icon {
-  font-size: 1.3rem;
-  color: #00ffe0;
-  filter: drop-shadow(0 0 5px #00ffae);
+  font-size: 1.2rem;
+  color: #63ffc2;
 }
-
