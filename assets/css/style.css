@@ -494,3 +494,55 @@ canvas.spark {
 body:not(.pump-on) .water-jet {
   display: none;
 }
+/* ============================================================
+   🌿 กล่องข้อความแสดงคำอธิบาย (NOTICE BOX – Takunchan Garden)
+   ============================================================ */
+.notice {
+  position: relative;
+  background: linear-gradient(145deg, rgba(0, 80, 90, 0.8), rgba(0, 20, 25, 0.9));
+  /* ✅ เปลี่ยนพื้นหลังให้มีสีอมเขียวมรกต โปร่งใสเล็กน้อย */
+  color: #e0faff;
+  border: 1px solid rgba(0,255,255,0.35);
+  border-radius: 14px;
+  text-align: center;
+  padding: 1.8rem 2.5rem;
+  line-height: 1.85;
+  font-size: 1.08rem;
+  max-width: 950px;
+  margin: 1.5rem auto 0 auto;
+  backdrop-filter: blur(10px);
+  text-shadow: 0 0 8px rgba(0,255,255,0.15);
+  letter-spacing: 0.3px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0,255,255,0.15);
+}
+
+/* ✅ แถบเรืองแสงเคลื่อนไหวรอบกรอบ */
+.notice::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(120deg, #00ffaa, #00eaff, #0077ff, #00ffaa);
+  background-size: 400% 400%;
+  z-index: -1;
+  filter: blur(4px);
+  border-radius: 16px;
+  animation: borderGlow 6s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.notice strong {
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+.notice em {
+  color: #aefaff;
+  font-style: normal;
+  font-weight: 300;
+}
