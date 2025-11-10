@@ -10,6 +10,8 @@
     body {
       background: radial-gradient(circle at 20% 30%, #010b10, #000);
       color: var(--ink);
+      font-family: "Poppins", sans-serif;
+      margin: 0;
     }
 
     h1.section-title {
@@ -26,29 +28,68 @@
       box-shadow: 0 0 12px rgba(0,255,255,0.1);
       border-radius: 10px;
       text-align: center;
+      padding: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
+    /* ===== GALLERY GRID ===== */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      max-width: 1200px;
     }
 
     .gallery img {
       width: 100%;
-      height: 230px;
+      height: auto;
+      max-height: 280px;
       object-fit: cover;
       border-radius: 12px;
       border: 1px solid rgba(0,255,255,0.2);
       box-shadow: 0 0 20px rgba(0,255,255,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
     .gallery img:hover {
       transform: scale(1.05);
       box-shadow: 0 0 25px rgba(0,255,200,0.5);
       border-color: var(--accent-2);
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,255,200,0.5);
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     footer.site {
@@ -61,6 +102,7 @@
       padding: 1rem 0;
     }
 
+    /* ===== HEADER ===== */
     .logo {
       width: 52px;
       height: 52px;
@@ -71,7 +113,6 @@
       overflow: hidden;
       box-shadow: 0 0 20px #00eaff;
     }
-
     .logo img {
       width: 100%;
       height: 100%;
@@ -80,14 +121,14 @@
       filter: drop-shadow(0 0 10px #00ffae);
       transition: transform 0.3s ease;
     }
-
     .logo img:hover { transform: scale(1.1); }
   </style>
 </head>
+
 <body>
   <header class="site">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
-      <div class="brand">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1rem 2rem;">
+      <div class="brand" style="display:flex;align-items:center;gap:1rem;">
         <div class="logo">
           <img src="assets/img/logo.png" alt="Takunchan Garden Logo">
         </div>
@@ -96,11 +137,11 @@
           <div style="font-size:.9rem;color:#7dd3fc;">Smart Farm • IoT • Durian</div>
         </div>
       </div>
-      <nav class="main">
+      <nav class="main" style="display:flex;gap:1rem;">
         <a href="index.html">หน้าแรก</a>
         <a href="about.html">เกี่ยวกับสวน</a>
         <a href="iot.html">ระบบ IoT</a>
-        <a class="active" href="gallery.html">ภาพสวน</a>
+        <a class="active" href="gallery.html" style="color:#00ffaa;text-shadow:0 0 8px #00ffa8;">ภาพสวน</a>
       </nav>
     </div>
   </header>
@@ -110,13 +151,25 @@
 
     <div class="card" style="margin-bottom:1rem">
       <p class="notice">
-        📸 ภาพจริงจากสวนตระกูลจัน — ระบบรดน้ำอัจฉริยะ (Smart Farm IoT)
+        📸 คลิกที่ภาพเพื่อขยายดูขนาดใหญ่ — ภาพจริงจากสวนตระกูลจัน  
+        ระบบบริหารจัดการน้ำอัจฉริยะ (Smart Watering IoT)
       </p>
     </div>
 
     <div class="gallery">
+      <a href="#img1"><img src="assets/img/durian1.jpg" alt="ต้นทุเรียนในร่มบังแดด"></a>
+      <a href="#img2"><img src="assets/img/durian2.jpg" alt="ต้นทุเรียนเติบโตในสวน"></a>
+      <a href="#img3"><img src="assets/img/durian3.jpg" alt="ภาพมุมกว้างสวนทุเรียนตระกูลจัน"></a>
+    </div>
+
+    <!-- ===== LIGHTBOX IMAGES ===== -->
+    <div class="lightbox" id="img1" onclick="window.location='#'">
       <img src="assets/img/durian1.jpg" alt="ต้นทุเรียนในร่มบังแดด">
+    </div>
+    <div class="lightbox" id="img2" onclick="window.location='#'">
       <img src="assets/img/durian2.jpg" alt="ต้นทุเรียนเติบโตในสวน">
+    </div>
+    <div class="lightbox" id="img3" onclick="window.location='#'">
       <img src="assets/img/durian3.jpg" alt="ภาพมุมกว้างสวนทุเรียนตระกูลจัน">
     </div>
   </main>
