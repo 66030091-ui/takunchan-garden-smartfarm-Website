@@ -21,16 +21,51 @@
       margin-top: 2rem;
     }
 
+    /* ===== NOTICE BOX ===== */
     .notice {
-      background: rgba(15, 23, 42, 0.6);
-      color: #c7f9ff;
-      border: 1px solid rgba(0,255,255,0.2);
-      box-shadow: 0 0 12px rgba(0,255,255,0.1);
-      border-radius: 10px;
+      position: relative;
+      background: rgba(10, 25, 47, 0.75);
+      color: #e0faff;
+      border: 1px solid rgba(0,255,255,0.3);
+      border-radius: 14px;
       text-align: center;
-      padding: 1rem;
-      max-width: 700px;
-      margin: 0 auto;
+      padding: 1.8rem 2.5rem;
+      line-height: 1.85;
+      font-size: 1.08rem;
+      max-width: 950px;
+      margin: 1rem auto 0 auto;
+      backdrop-filter: blur(10px);
+      text-shadow: 0 0 8px rgba(0,255,255,0.15);
+      letter-spacing: 0.3px;
+      overflow: hidden;
+    }
+
+    .notice::before {
+      content: "";
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; bottom: -2px;
+      background: linear-gradient(120deg, #00ffaa, #00ccff, #0077ff, #00ffaa);
+      background-size: 400% 400%;
+      z-index: -1;
+      filter: blur(4px);
+      border-radius: 16px;
+      animation: borderGlow 6s linear infinite;
+    }
+
+    @keyframes borderGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .notice strong {
+      color: #00ffd0;
+    }
+
+    .notice em {
+      color: #aefaff;
+      font-style: normal;
+      font-weight: 300;
     }
 
     /* ===== GALLERY GRID ===== */
@@ -149,10 +184,14 @@
   <main class="container">
     <h1 class="section-title">🌿 แกลเลอรีภาพสวน Takunchan Garden</h1>
 
-    <div class="card" style="margin-bottom:1rem">
+    <div class="card" style="margin-bottom:1.5rem">
       <p class="notice">
-        📸 คลิกที่ภาพเพื่อขยายดูขนาดใหญ่ — ภาพจริงจากสวนตระกูลจัน  
-        ระบบบริหารจัดการน้ำอัจฉริยะ (Smart Watering IoT)
+        🌱 <strong>ยินดีต้อนรับสู่แกลเลอรีภาพสวนตระกูลจัน</strong> 🌿  
+        ที่ซึ่งเทคโนโลยีผสานกับธรรมชาติอย่างลงตัว ภาพถ่ายเหล่านี้ถ่ายทอดให้เห็นถึงบรรยากาศจริงของ  
+        <strong>สวนทุเรียนอัจฉริยะ Takunchan Garden</strong> ซึ่งได้ติดตั้งระบบบริหารจัดการน้ำอัตโนมัติ  
+        <em>(Smart Watering IoT System)</em> เพื่อช่วยควบคุมการให้น้ำอย่างแม่นยำและประหยัดพลังงาน  
+        <br><br>
+        📸 <em>คลิกที่ภาพเพื่อขยายดูขนาดใหญ่ แล้วสัมผัสความงดงามของสวนจริงในอำเภอโพธาราม จังหวัดราชบุรี</em>
       </p>
     </div>
 
