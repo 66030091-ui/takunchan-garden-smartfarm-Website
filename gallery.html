@@ -21,51 +21,45 @@
       margin-top: 2rem;
     }
 
-    /* ===== NOTICE BOX ===== */
+    /* ===== NOTICE BOX (เรียบ หรู อ่านง่าย) ===== */
     .notice {
-      position: relative;
-      background: rgba(10, 25, 47, 0.75);
-      color: #e0faff;
-      border: 1px solid rgba(0,255,255,0.3);
-      border-radius: 14px;
-      text-align: center;
-      padding: 1.8rem 2.5rem;
-      line-height: 1.85;
-      font-size: 1.08rem;
-      max-width: 950px;
-      margin: 1rem auto 0 auto;
-      backdrop-filter: blur(10px);
-      text-shadow: 0 0 8px rgba(0,255,255,0.15);
-      letter-spacing: 0.3px;
-      overflow: hidden;
-    }
-
-    .notice::before {
-      content: "";
-      position: absolute;
-      top: -2px; left: -2px; right: -2px; bottom: -2px;
-      background: linear-gradient(120deg, #00ffaa, #00ccff, #0077ff, #00ffaa);
-      background-size: 400% 400%;
-      z-index: -1;
-      filter: blur(4px);
+      background: rgba(20, 35, 30, 0.85);   /* เขียวเทาเข้มธรรมชาติ */
+      color: #f0fff9;                        /* ตัวอักษรขาวอมเขียว */
+      border: 1px solid rgba(0, 255, 180, 0.25);
       border-radius: 16px;
-      animation: borderGlow 6s linear infinite;
-    }
-
-    @keyframes borderGlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      text-align: center;
+      padding: 2rem 2.5rem;
+      line-height: 1.9;
+      font-size: 1.1rem;
+      width: 92%;
+      margin: 1.8rem auto;
+      box-shadow: 0 0 20px rgba(0, 255, 150, 0.07);
+      backdrop-filter: blur(4px);
     }
 
     .notice strong {
-      color: #00ffd0;
+      color: #7fffd4;        /* เขียวมรกตอ่อน */
+      font-weight: 700;
+      text-shadow: 0 0 4px rgba(0, 255, 180, 0.3);
     }
 
     .notice em {
-      color: #aefaff;
+      color: #c8fff0;         /* เขียวอ่อนกว่าเล็กน้อย */
       font-style: normal;
-      font-weight: 300;
+    }
+
+    .notice span.icon {
+      font-size: 1.3rem;
+      color: #00ffae;
+      margin-right: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .notice {
+        font-size: 1rem;
+        padding: 1.5rem;
+        width: 95%;
+      }
     }
 
     /* ===== GALLERY GRID ===== */
@@ -81,18 +75,18 @@
     .gallery img {
       width: 100%;
       height: auto;
-      max-height: 280px;
+      max-height: 300px;
       object-fit: cover;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid rgba(0,255,255,0.2);
-      box-shadow: 0 0 20px rgba(0,255,255,0.1);
+      box-shadow: 0 0 15px rgba(0,255,255,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
 
     .gallery img:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(0,255,200,0.5);
+      box-shadow: 0 0 25px rgba(0,255,200,0.4);
       border-color: var(--accent-2);
     }
 
@@ -114,8 +108,8 @@
     .lightbox img {
       max-width: 90%;
       max-height: 90%;
-      border-radius: 12px;
-      box-shadow: 0 0 30px rgba(0,255,200,0.5);
+      border-radius: 14px;
+      box-shadow: 0 0 30px rgba(0,255,200,0.4);
     }
 
     .lightbox:target {
@@ -148,6 +142,7 @@
       overflow: hidden;
       box-shadow: 0 0 20px #00eaff;
     }
+
     .logo img {
       width: 100%;
       height: 100%;
@@ -156,6 +151,7 @@
       filter: drop-shadow(0 0 10px #00ffae);
       transition: transform 0.3s ease;
     }
+
     .logo img:hover { transform: scale(1.1); }
   </style>
 </head>
@@ -185,21 +181,20 @@
     <h1 class="section-title">🌿 แกลเลอรีภาพสวน Takunchan Garden</h1>
 
     <div class="card" style="margin-bottom:1.5rem">
-  <p class="notice">
-    <span class="icon">🌿</span> 
-    <strong>ยินดีต้อนรับสู่แกลเลอรีภาพสวนตระกูลจัน</strong> —  
-    สวนทุเรียนอัจฉริยะที่ผสานเทคโนโลยีเข้ากับธรรมชาติอย่างลงตัว  
-    ภาพถ่ายเหล่านี้ถ่ายทอดบรรยากาศจริงของ 
-    <strong>Takunchan Garden</strong>  
-    ที่ใช้ระบบบริหารจัดการน้ำอัตโนมัติ 
-    <em>(Smart Watering IoT System)</em>  
-    เพื่อควบคุมการให้น้ำอย่างแม่นยำและประหยัดพลังงาน  
-    <br><br>
-    <span class="icon">📸</span> 
-    <em>คลิกที่ภาพเพื่อขยายดูขนาดใหญ่ แล้วสัมผัสความงดงามของสวนจริงในอำเภอโพธาราม จังหวัดราชบุรี</em>
-  </p>
-</div>
-
+      <p class="notice">
+        <span class="icon">🌿</span> 
+        <strong>ยินดีต้อนรับสู่แกลเลอรีภาพสวนตระกูลจัน</strong> —  
+        สวนทุเรียนอัจฉริยะที่ผสานเทคโนโลยีเข้ากับธรรมชาติอย่างลงตัว  
+        ภาพถ่ายเหล่านี้ถ่ายทอดบรรยากาศจริงของ 
+        <strong>Takunchan Garden</strong>  
+        ซึ่งใช้ระบบบริหารจัดการน้ำอัตโนมัติ 
+        <em>(Smart Watering IoT System)</em>  
+        เพื่อควบคุมการให้น้ำอย่างแม่นยำและประหยัดพลังงาน  
+        <br><br>
+        <span class="icon">📸</span> 
+        <em>คลิกที่ภาพเพื่อขยายดูขนาดใหญ่ แล้วสัมผัสความงดงามของสวนจริงในอำเภอโพธาราม จังหวัดราชบุรี</em>
+      </p>
+    </div>
 
     <div class="gallery">
       <a href="#img1"><img src="assets/img/durian1.jpg" alt="ต้นทุเรียนในร่มบังแดด"></a>
