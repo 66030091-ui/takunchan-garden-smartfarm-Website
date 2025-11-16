@@ -37,9 +37,21 @@
       backdrop-filter: blur(4px);
     }
 
-    .notice strong { color: #7fffd4; font-weight: 700; }
-    .notice em { color: #c8fff0; font-style: normal; }
-    .notice span.icon { font-size: 1.3rem; color: #00ffae; margin-right: 8px; }
+    .notice strong {
+      color: #7fffd4;
+      font-weight: 700;
+    }
+
+    .notice em {
+      color: #c8fff0;
+      font-style: normal;
+    }
+
+    .notice span.icon {
+      font-size: 1.3rem;
+      color: #00ffae;
+      margin-right: 8px;
+    }
 
     /* ===== GALLERY GRID ===== */
     .gallery {
@@ -90,9 +102,10 @@
       box-shadow: 0 0 30px rgba(0,255,200,0.4);
     }
 
-    .lightbox:target { display: flex; }
+    .lightbox:target {
+      display: flex;
+    }
 
-    /* FOOTER */
     footer.site {
       margin-top: 3rem;
       border-top: 1px solid rgba(0,255,255,0.2);
@@ -103,7 +116,7 @@
       padding: 1rem 0;
     }
 
-    /* HEADER */
+    /* ===== HEADER ===== */
     .logo {
       width: 52px;
       height: 52px;
@@ -124,7 +137,9 @@
       transition: transform 0.3s ease;
     }
 
-    .logo img:hover { transform: scale(1.1); }
+    .logo img:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 
@@ -152,9 +167,9 @@
   <main class="container">
     <h1 class="section-title">🌿 แกลเลอรีภาพสวน Takunchan Garden</h1>
 
-    <div class="card" style="margin-bottom:1.5rem">
+    <div class="card" style="margin-bottom:1.5rem;">
       <p class="notice">
-        <span class="icon">🌿</span> 
+        <span class="icon">🌿</span>
         <strong>ยินดีต้อนรับสู่แกลเลอรีภาพสวนตระกูลจัน</strong> —  
         สวนทุเรียนอัจฉริยะที่ผสานเทคโนโลยีเข้ากับธรรมชาติอย่างลงตัว  
         ภาพถ่ายเหล่านี้ถ่ายทอดบรรยากาศจริงของ 
@@ -168,31 +183,44 @@
       </p>
     </div>
 
-    <!-- ===== VIDEO SECTION ===== -->
+    <!-- ===================== VIDEO SECTION ===================== -->
     <h2 class="section-title" style="margin-top:3rem;">🎬 วิดีโอสวน Takunchan Garden</h2>
 
-    <div class="card" style="margin-bottom:2rem; padding: 1rem 1.5rem;">
-      <video controls style="width:100%;border-radius:14px;box-shadow:0 0 20px rgba(0,255,200,0.15);">
+    <div class="card" style="margin-bottom:3rem; padding:1rem 1.5rem; display:flex; justify-content:center;">
+      <video controls 
+        style="
+          width:100%;
+          max-width:800px;
+          border-radius:14px;
+          box-shadow:0 0 20px rgba(0,255,200,0.15);
+          display:block;
+        ">
         <source src="assets/video/IMG_2913.mp4" type="video/mp4">
         เบราว์เซอร์นี้ไม่รองรับการเล่นวิดีโอ
       </video>
     </div>
 
+    <!-- ===== Divider (Neon Line) ===== -->
+    <hr style="width:80%; margin:3rem auto; border:0; height:2px; background:rgba(0,255,200,0.25); border-radius:10px;">
+
+    <!-- ===================== IMAGE GALLERY ===================== -->
+    <h2 class="section-title" style="margin-top:3rem;">🖼️ ภาพถ่ายสวน</h2>
+
     <div class="gallery">
-      <a href="#img1"><img src="assets/img/durian1.jpg" alt="ต้นทุเรียนในร่มบังแดด"></a>
-      <a href="#img2"><img src="assets/img/durian2.jpg" alt="ต้นทุเรียนเติบโตในสวน"></a>
-      <a href="#img3"><img src="assets/img/durian3.jpg" alt="ภาพมุมกว้างสวนทุเรียนตระกูลจัน"></a>
+      <a href="#img1"><img src="assets/img/durian1.jpg" alt=""></a>
+      <a href="#img2"><img src="assets/img/durian2.jpg" alt=""></a>
+      <a href="#img3"><img src="assets/img/durian3.jpg" alt=""></a>
     </div>
 
-    <!-- ===== LIGHTBOX IMAGES ===== -->
+    <!-- LIGHTBOX -->
     <div class="lightbox" id="img1" onclick="window.location='#'">
-      <img src="assets/img/durian1.jpg" alt="ต้นทุเรียนในร่มบังแดด">
+      <img src="assets/img/durian1.jpg">
     </div>
     <div class="lightbox" id="img2" onclick="window.location='#'">
-      <img src="assets/img/durian2.jpg" alt="ต้นทุเรียนเติบโตในสวน">
+      <img src="assets/img/durian2.jpg">
     </div>
     <div class="lightbox" id="img3" onclick="window.location='#'">
-      <img src="assets/img/durian3.jpg" alt="ภาพมุมกว้างสวนทุเรียนตระกูลจัน">
+      <img src="assets/img/durian3.jpg">
     </div>
   </main>
 
@@ -202,5 +230,6 @@
       <div>ขอบคุณที่เยี่ยมชมสวนของเรา 🌳</div>
     </div>
   </footer>
+
 </body>
 </html>
