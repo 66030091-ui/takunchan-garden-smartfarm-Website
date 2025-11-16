@@ -14,17 +14,17 @@
       margin: 0;
     }
 
-    h1.section-title {
+    h1.section-title, h2.section-title {
       color: var(--accent);
       text-shadow: 0 0 12px var(--accent-2);
       text-align: center;
       margin-top: 2rem;
     }
 
-    /* ===== NOTICE BOX (เรียบ หรู อ่านง่าย) ===== */
+    /* ===== NOTICE BOX ===== */
     .notice {
-      background: rgba(20, 35, 30, 0.85);   /* เขียวเทาเข้มธรรมชาติ */
-      color: #f0fff9;                        /* ตัวอักษรขาวอมเขียว */
+      background: rgba(20, 35, 30, 0.85);
+      color: #f0fff9;
       border: 1px solid rgba(0, 255, 180, 0.25);
       border-radius: 16px;
       text-align: center;
@@ -38,13 +38,13 @@
     }
 
     .notice strong {
-      color: #7fffd4;        /* เขียวมรกตอ่อน */
+      color: #7fffd4;
       font-weight: 700;
       text-shadow: 0 0 4px rgba(0, 255, 180, 0.3);
     }
 
     .notice em {
-      color: #c8fff0;         /* เขียวอ่อนกว่าเล็กน้อย */
+      color: #c8fff0;
       font-style: normal;
     }
 
@@ -52,14 +52,6 @@
       font-size: 1.3rem;
       color: #00ffae;
       margin-right: 8px;
-    }
-
-    @media (max-width: 768px) {
-      .notice {
-        font-size: 1rem;
-        padding: 1.5rem;
-        width: 95%;
-      }
     }
 
     /* ===== GALLERY GRID ===== */
@@ -114,11 +106,6 @@
 
     .lightbox:target {
       display: flex;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
 
     footer.site {
@@ -196,13 +183,23 @@
       </p>
     </div>
 
+    <!-- ===== VIDEO SECTION ===== -->
+    <h2 class="section-title" style="margin-top:3rem;">🎬 วิดีโอสวน Takunchan Garden</h2>
+
+    <div class="card" style="margin-bottom:2rem; padding: 1rem 1.5rem;">
+      <video controls style="width:100%;border-radius:14px;box-shadow:0 0 20px rgba(0,255,200,0.15);">
+        <source src="assets/video/IMG_2912.mov" type="video/mp4">
+        เบราว์เซอร์นี้ไม่รองรับการเล่นวิดีโอ
+      </video>
+    </div>
+
     <div class="gallery">
       <a href="#img1"><img src="assets/img/durian1.jpg" alt="ต้นทุเรียนในร่มบังแดด"></a>
       <a href="#img2"><img src="assets/img/durian2.jpg" alt="ต้นทุเรียนเติบโตในสวน"></a>
       <a href="#img3"><img src="assets/img/durian3.jpg" alt="ภาพมุมกว้างสวนทุเรียนตระกูลจัน"></a>
     </div>
 
-    <!-- ===== LIGHTBOX IMAGES ===== -->
+    <!-- ===== LIGHTBOX ===== -->
     <div class="lightbox" id="img1" onclick="window.location='#'">
       <img src="assets/img/durian1.jpg" alt="ต้นทุเรียนในร่มบังแดด">
     </div>
